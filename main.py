@@ -1,7 +1,12 @@
 import sqlite3
 
 conn = sqlite3.connect('dbs/sms.db')
-cursor = conn.cursor()
+
+
+def run_sql(sql):
+    cursor = conn.cursor()
+    conn.execute(sql)
+    conn.commit()
 
 
 def hint():
@@ -31,6 +36,7 @@ while True:
     command = command.split(' ')
 
     if command[0] == 'exit':
+        conn.close()
         break
 
     if command[0] == 'sign-in':
