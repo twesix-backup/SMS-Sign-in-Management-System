@@ -11,17 +11,17 @@ def run_sql(sql):
         conn.commit()
         return cursor
     except sqlite3.OperationalError as e:
-        print('[x]出现错误')
+        print('\033[31;5m [x]出现错误 \033[0m')
         print(e)
 
 
 def hint():
-    print('//--------------------------------------------//')
-    print('请按下列格式使用 : ')
-    print('[注意] 学号格式为4位班级号加4位学生编号，共八位（例如：53140821）')
-    print('    1.[签到]      sign-in 学号')
-    print('    2.[按人查询]  query-by-student 学号')
-    print('    3.[按班查询]  sign-by-class 班级号 \n')
+    print('\033[35;5m//--------------------------------------------//\033[0m')
+    print('\033[32;5m请按下列格式使用 : \033[0m')
+    print('\033[33;5m[注意] 学号格式为4位班级号加4位学生编号，共八位（例如：53140821）')
+    print('\033[32;5m    1.[签到]      sign-in 姓名 学号')
+    print('    2.[按人查询]  query-by-student 学号 日期')
+    print('    3.[按班查询]  sign-by-class 班级号 日期 \n\033[0m')
 
 
 def query_by_class(cid, date):
@@ -59,29 +59,29 @@ while True:
         break
 
     if command[0] == 'sign-in':
-        print('[签到]')
+        print('\033[32;5m[签到]\033[0m')
         if len(command) != 3:
-            print('参数个数不对')
+            print('\033[31;5m参数个数不对\033[0m')
             continue
         sign_in(command[1], command[2])
         continue
 
     if command[0] == 'query-by-student':
-        print('[按学号查询]')
+        print('\033[32;5m[按学号查询]\033[0m')
         if len(command) != 3:
-            print('参数个数不对')
+            print('\033[31;5m参数个数不对\033[0m')
             continue
         query_by_student(command[1], command[2])
         continue
 
     if command[0] == 'query-by-class':
-        print('[按班级查询]')
+        print('\033[32;5m[按班级查询]\033[0m')
         if len(command) != 3:
-            print('参数个数不对')
+            print('\033[31;5m参数个数不对\033[0m')
             continue
         query_by_class(command[1], command[2])
         continue
 
-    print('[x]命令错误,请重新输入')
+    print('\033[31;5m[x]命令错误,请重新输入\033[0m')
 
 print('谢谢使用,再见 !')
