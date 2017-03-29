@@ -33,6 +33,10 @@ def query_by_class(cid, date):
 
 
 def query_by_student(sid, date):
+    sql = "select name,sid from sign where sid='{sid}' and date='{date}' ;".format(sid=sid, date=date)
+    cursor = run_sql(sql)
+    for line in cursor.fetchall():
+        print(line)
     pass
 
 
