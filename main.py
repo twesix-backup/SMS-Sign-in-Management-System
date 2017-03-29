@@ -11,6 +11,18 @@ def hint():
     print('    3.[按班查询]  sign-by-class 班级号 \n')
 
 
+def query_by_class(cid):
+    pass
+
+
+def query_by_student(sid):
+    pass
+
+
+def sign_in(name, cid):
+    pass
+
+
 command = 'start'
 hint()
 
